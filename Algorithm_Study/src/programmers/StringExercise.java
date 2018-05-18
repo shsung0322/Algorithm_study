@@ -1,5 +1,7 @@
 package programmers;
 
+// 문자열의 가운데 글자 가져오기 문자열이 짝수면 2개, 홀수면 1개
+
 public class StringExercise {
     String getMiddle(String word){
     	

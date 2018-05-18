@@ -1,5 +1,7 @@
 package programmers;
 
+// 배열의 함 구하기
+
 public class SumMatrix {
 	
 	int[][] sumMatrix(int[][] A, int[][] B) {

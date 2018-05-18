@@ -2,6 +2,8 @@ package programmers;
 
 import java.util.Arrays;
 
+// 서울에서 김서방 찾기
+
 public class FindKim {
 	
 	public String findKim(String[] seoul){
