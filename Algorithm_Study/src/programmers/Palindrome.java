@@ -15,6 +15,7 @@ public class Palindrome {
     {
                 
 		int answer = 0;
+		s = s.trim();
 		String reverseString = new StringBuffer(s).reverse().toString();
 		
 		if(s.contentEquals(reverseString)) return answer = s.length();
@@ -37,9 +38,22 @@ public class Palindrome {
 			boolean flag = reverseString.contains(s.substring(startIdx, endIdx));
 			
 			if(flag){
+				int length = s.substring(startIdx, endIdx).length();
 				
-				result = result >= s.substring(startIdx, endIdx).length() ? result : s.substring(startIdx, endIdx).length();
-				endIdx++;
+				if(length == 2){
+					String temp = s.substring(startIdx, endIdx);
+					if(temp.charAt(0) == temp.charAt(1)){
+						result = result >= length ? result : length;
+						endIdx++;
+					}else{
+						startIdx++;
+						endIdx = startIdx;	
+					}
+				
+				}else{
+					result = result >= length ? result : length;
+					endIdx++;
+				}
 				
 			}else{
 				
@@ -55,8 +69,19 @@ public class Palindrome {
 	public static void main(String[] args){
 		
 		Palindrome palindrome = new Palindrome();
-		int result = palindrome.solution("abaaadaa"); //abcdabcdcba
-		
+		int result = palindrome.solution("abcdefgcb");
 		System.out.println(result);
+		// abcdefgcb - 1, abcd - 1, abab - 3, dcabccd - 2, abcba - 5, aaaaa - 5
+		result = palindrome.solution("abcd");
+		System.out.println(result);
+		result = palindrome.solution("abab");
+		System.out.println(result);
+		result = palindrome.solution("dcabccd");
+		System.out.println(result);
+		result = palindrome.solution("abcba");
+		System.out.println(result);
+		result = palindrome.solution("aaaaa");
+		System.out.println(result);
+		
 	}
 }
