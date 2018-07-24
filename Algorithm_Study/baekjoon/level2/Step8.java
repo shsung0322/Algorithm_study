@@ -21,30 +21,27 @@ public class Step8 {
 	
 	public static void main(String[] args){
 		
-		//Scanner sc = new Scanner(System.in);
-		Integer[] data = new Integer[]{3,4,5,6,7,8,9,10,11,12};
+		Scanner sc = new Scanner(System.in);
+		int data = sc.nextInt();
 		
-		for(int a : data){
-		
-		System.out.println(a + ":" + division(a, 0));
-		}
+		System.out.println(division(data, 0));
 	}
 	
-	
-	public static int division(int a, int b){
+	public static int division(int a, int result){
 		
-		if(a%5==0){
-			return a/5+b;
-		}else if(a%3==0){
-			return a/3+b;
-		}else if(a >=5){
-			return division(a%5, a/5+b);
-		}else if(a >=3){
-			return division(a%3, a/3+b);
-		}else if(a != 0){
+		if(a<10){
+			
+			if(a%3==0) return a/3 + result;
+			if(a%5==0) return a/5 + result;
+			if(a-8==0) return 2 + result;
 			return -1;
+		
 		}
 		
-		return a+b;
+		if(a%5==0) return a/5 + result;
+		
+		a = a-3;
+
+		return division(a, result+1);
 	}
 }
