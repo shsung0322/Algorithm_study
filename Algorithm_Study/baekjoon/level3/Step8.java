@@ -16,7 +16,6 @@ import java.util.Scanner;
 
 public class Step8 {
 	
-	@SuppressWarnings("static-access")
 	public static void main(String[] args){
 		
 		String[] day = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
@@ -29,8 +28,8 @@ public class Step8 {
 		
 		cal.set(2007, m-1, d);
 		
-		
-		System.out.println(day[cal.get(cal.DAY_OF_WEEK)]);
+		System.out.println(cal.get(cal.MONTH));
+		System.out.println(day[cal.get(cal.DAY_OF_WEEK)-1]);
 		
 	}
 }
