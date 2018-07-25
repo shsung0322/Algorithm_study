@@ -28,7 +28,6 @@ public class Step8 {
 		
 		cal.set(2007, m-1, d);
 		
-		System.out.println(cal.get(cal.MONTH));
 		System.out.println(day[cal.get(cal.DAY_OF_WEEK)-1]);
 		
 	}
