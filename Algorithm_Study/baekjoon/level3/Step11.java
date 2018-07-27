@@ -22,9 +22,10 @@ public class Step11 {
 		Scanner sc = new Scanner(System.in);
 		String str = sc.next();
 		int cnt = str.length()/10;
-		System.out.println(cnt);
-		cnt = Math.round(str.length()/10);
-		System.out.println(cnt);
+		for(int i =0 ; i < cnt; i++)
+			System.out.println(str.substring(i*10,(i+1)*10));
+		
+		System.out.println(str.substring(cnt*10, str.length()));
 		
 	}
 }
