@@ -1,7 +1,9 @@
 package level4;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /*
 문제
@@ -22,5 +24,44 @@ public class Step5 {
 		
 		BufferedReader br = new BufferedReader(
 								new InputStreamReader(System.in));
+				
+		try {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int testCase = Integer.valueOf(st.nextToken());
+			int studentNum = 0;
+			double highScore = 0;
+			int score = 0;
+			int totalScore = 0;
+			
+			for(int i = 0; i < testCase; i++){
+				
+				totalScore = 0;
+				highScore = 0;
+				st = new StringTokenizer(br.readLine());
+				studentNum = Integer.valueOf(st.nextToken());
+				int[] arrScore = new int[studentNum] ;
+				
+				for(int j = 0; j < studentNum; j++){
+					
+					score = Integer.valueOf(st.nextToken());
+					totalScore += score;
+					arrScore[j] = score;
+				}
+				
+				for(int j = 0; j < studentNum; j++){
+					
+					if(totalScore/studentNum < arrScore[j]) highScore++;
+					
+				}
+				
+				System.out.println(String.format("%.3f", highScore/studentNum*100)+"%");
+			}
+			
+			if(br!=null) br.close();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
