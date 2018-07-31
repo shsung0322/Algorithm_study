@@ -22,51 +22,9 @@ n을 d(n)의 생성자라고 한다. 위의 수열에서 33은 39의 생성자�
 10,000보다 작거나 같은 셀프 넘버를 한 줄에 하나씩 증가하는 순서로 출력한다.
 */
 
-import java.util.ArrayList;
 
 public class Step1 {
 
-	public static void main(String[] args){
-		
-		int n = 1;
-				
-		ArrayList<Integer> list = new ArrayList<Integer>();
-		boolean flag = true;
-		
-		do{
-		
-			for(int i=0; i < list.size(); i++){
-				
-				if(n == list.get(i)){
-					flag = false;
-					break;
-				}
-			}
-			
-			if(flag){
-				
-				System.out.println(n);
-				list.add(arrNum(n));
-			
-			}else{
-				
-				flag = true;
-				list.add(arrNum(n));
-			}
-				
-			n++;
-			
-		}while(n<=10000);
-		
-	}
+	public static void main(String[] args){}
 	
-	public static int arrNum(int n){
-		
-		int leftNum = n/1000;
-		int middleNum1 = n/100;
-		int middleNum2 = n/10;
-		int rightNum = n%10;
-		
-		return n + leftNum + middleNum1 + middleNum2 + rightNum;
-	}
 }
