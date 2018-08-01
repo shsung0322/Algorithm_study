@@ -1,4 +1,5 @@
 package level5;
+
 /*
 문제
 셀프 넘버는 1949년 인도 수학자 D.R. Kaprekar가 이름 붙였다. 양의 정수 n에 대해서 d(n)을 n과 n의 각 자리수를 더하는 함수라고 정의하자. 예를 들어, d(75) = 75+7+5 = 87이다.
@@ -24,7 +25,53 @@ n을 d(n)의 생성자라고 한다. 위의 수열에서 33은 39의 생성자�
 
 
 public class Step1 {
-
-	public static void main(String[] args){}
 	
+	public static void main(String[] args){
+		
+		
+		Boolean[] flagList = new Boolean[10000];
+		int n;
+		
+		for(int i = 0; i<10000; i++)
+			flagList[i] = true;
+		
+		flagList[0] = false;
+
+		for(int i = 1; i<=10000; i++){
+			
+			n = i;
+			
+			while(true){
+				
+				n = d(n);
+				
+				if(n >= flagList.length) break;
+				if(flagList[n]==false) break;
+				flagList[n] = false;
+			}
+		}
+		
+		printData(flagList);
+	}
+	
+	public static int d(int n){
+		
+		int totalNum = n;
+		int thousNum = n/1000;
+		int hundredNum = n%1000/100;
+		int tenNum = n%1000%100/10;
+		int num = n%1000%100%10;
+		
+		int checkNum = totalNum+thousNum+hundredNum+tenNum+num;
+		
+		return checkNum;
+	}
+	
+	public static void printData(Boolean[] flagList){
+		
+		for(int i = 0; i< flagList.length; i++){
+			
+			if(flagList[i]) System.out.println(i);
+		}
+	}
 }
